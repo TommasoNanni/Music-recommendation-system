@@ -19,7 +19,7 @@ class ArtistNode(MusicNode):
         super().__init__(features)
     
     def get_features_gnn(self) -> torch.tensor:
-        vals = torch.tensor(self.features.get(key, torch.nan) for key in self.feature_gnn)
+        vals = torch.tensor([self.features.get(key, torch.nan) for key in self.feature_gnn], dtype = torch.float32)
         return vals
     
 
@@ -39,7 +39,7 @@ class TrackNode(MusicNode):
         super().__init__(features)
     
     def get_features_gnn(self) -> torch.tensor:
-        vals = torch.tensor(self.features.get(key, torch.nan) for key in self.feature_gnn)
+        vals = torch.tensor([self.features.get(key, torch.nan) for key in self.feature_gnn], dtype = torch.float32)
         return vals
     
     
@@ -53,6 +53,6 @@ class GenreNode(MusicNode):
         super().__init__(features)
     
     def get_features_gnn(self) -> torch.tensor:
-        vals = torch.tensor(self.features.get(key, torch.nan) for key in self.feature_gnn)
+        vals = torch.tensor([self.features.get(key, torch.nan) for key in self.feature_gnn], dtype = torch.float32)
         return vals
     
